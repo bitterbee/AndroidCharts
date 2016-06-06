@@ -4,13 +4,16 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import com.netease.zylchartcore.c.Constant;
+import com.netease.zylchartcore.data.Point3;
 import com.netease.zylchartcore.matrix.MatrixState;
+import com.netease.zylchartcore.shape.Ball;
 import com.netease.zylchartcore.shape.Shape;
 
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ public class BaseSurfaceView extends GLSurfaceView {
     private SceneRenderer mRenderer;//场景渲染器
 
     private List<Shape> mShapes = new ArrayList<>();
+    private Ball mBall;
 
     float xAngle = 0;// 绕x轴旋转的角度
     float yAngle = 0;// 绕y轴旋转的角度
@@ -42,7 +46,7 @@ public class BaseSurfaceView extends GLSurfaceView {
         this.setEGLContextClientVersion(2); //设置使用OPENGL ES2.0
         mRenderer = new SceneRenderer();    //创建场景渲染器
         setRenderer(mRenderer);             //设置渲染器
-        setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);//设置渲染模式为主动渲染
+        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);//设置渲染模式为被动渲染
     }
 
     public BaseSurfaceView(Context context, AttributeSet attrs, List<Shape> shapes) {
@@ -54,7 +58,7 @@ public class BaseSurfaceView extends GLSurfaceView {
 
     public void addShape(Shape s) {
         mShapes.add(s);
-        postInvalidate();
+        requestRender();
     }
 
     public void setShape(Shape s) {
@@ -62,7 +66,7 @@ public class BaseSurfaceView extends GLSurfaceView {
         if (s != null) {
             mShapes.add(s);
         }
-        postInvalidate();
+        requestRender();
     }
 
     //触摸事件回调方法
@@ -80,12 +84,15 @@ public class BaseSurfaceView extends GLSurfaceView {
         }
         mPreviousY = y;//记录触控笔位置
         mPreviousX = x;//记录触控笔位置
+        requestRender();
         return true;
     }
 
     private class SceneRenderer implements GLSurfaceView.Renderer {
 
         public void onDrawFrame(GL10 gl) {
+            mBall = new Ball(new Point3(0,0,0), 0.8f, 10);
+
             //清除深度缓冲与颜色缓冲
             GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
             //初始化光源位置
@@ -122,6 +129,10 @@ public class BaseSurfaceView extends GLSurfaceView {
         }
 
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+            for (Shape shape : mShapes) {
+                shape.initInSurfaceViewCreated();
+            }
+
             //设置屏幕背景色RGBA
             GLES20.glClearColor(0f, 0f, 0f, 1.0f);
             //打开深度检测

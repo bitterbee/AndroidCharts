@@ -46,11 +46,6 @@ public class Ball extends Shape {
         }
 
         this.r = r;
-
-        // 初始化顶点坐标与着色数据
-        initVertexData();
-        // 初始化shader
-        initShader();
     }
 
     // 初始化顶点坐标数据的方法
@@ -167,6 +162,14 @@ public class Ball extends Shape {
         maLightLocationHandle=GLES20.glGetUniformLocation(mProgram, "uLightLocation");
         //获取程序中摄像机位置引用
         maCameraHandle=GLES20.glGetUniformLocation(mProgram, "uCamera");
+    }
+
+    @Override
+    public void initInSurfaceViewCreated() {
+        // 初始化顶点坐标与着色数据
+        initVertexData();
+        // 初始化shader
+        initShader();
     }
 
     @Override

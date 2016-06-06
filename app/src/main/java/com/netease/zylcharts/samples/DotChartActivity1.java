@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class DotChartActivity1 extends BaseChartActivity implements SeekBar.OnSeekBarChangeListener {
     private SeekBar mSeekBar;
+    private PointClouds mPointClouds;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class DotChartActivity1 extends BaseChartActivity implements SeekBar.OnSe
         ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.activity_point_clouds, mContainer);
 
         mSurfaceView = (BaseSurfaceView) vg.findViewById(R.id.surface_view);
-        setPointCount(1);
+        setPointCount(10);
 
         //普通拖拉条被拉动的处理代码
         mSeekBar = (SeekBar) this.findViewById(R.id.SeekBar01);
@@ -49,18 +50,20 @@ public class DotChartActivity1 extends BaseChartActivity implements SeekBar.OnSe
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         int progress = mSeekBar.getProgress();
-        progress = 1;
-
         setPointCount(progress);
     }
 
     private void setPointCount(int count) {
         List<Point3> points = new ArrayList<Point3>();
         for (int i=0; i<count; i++) {
-//            points.add(new Point3((float)Math.random(), (float)Math.random(), (float)Math.random()));
-            points.add(new Point3(0,0,0));
+            points.add(new Point3((float)Math.random(), (float)Math.random(), (float)Math.random()));
         }
-        PointClouds pc = new PointClouds(points);
-        mSurfaceView.setShape(pc);
+
+        if (mPointClouds == null) {
+            mPointClouds = new PointClouds(points);
+            mSurfaceView.setShape(mPointClouds);
+        }
+        mPointClouds.setPoints(points);
+        mSurfaceView.requestRender();
     }
 }

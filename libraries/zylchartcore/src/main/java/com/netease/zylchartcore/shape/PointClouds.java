@@ -1,6 +1,7 @@
 package com.netease.zylchartcore.shape;
 
 import com.netease.zylchartcore.data.Point3;
+import com.netease.zylchartcore.matrix.MatrixState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,20 +10,38 @@ import java.util.List;
  * Created by zyl06 on 6/6/16.
  */
 public class PointClouds extends Shape {
-    List<Ball> mBalls = new ArrayList<>();
+    private Ball mBall;
+    List<Point3> mLocations = new ArrayList<>();
 
     public PointClouds(List<Point3> points) {
-        int count = points.size();
-        for (int i=0; i<count; ++i) {
-            Ball ball = new Ball(points.get(i), 0.8f, 45);
-            mBalls.add(ball);
+        setPoints(points);
+    }
+
+    public void setPoints(List<Point3> points) {
+        if (mBall == null) {
+            mBall = new Ball(Point3.ORIGIN3, 0.05f, 60);
+        }
+        mLocations.clear();
+        if (points != null) {
+            mLocations.addAll(points);
         }
     }
 
     @Override
-    public void drawSelf() {
-        for (Ball ball : mBalls) {
-            ball.drawSelf();
+    public void initInSurfaceViewCreated() {
+        mBall.initInSurfaceViewCreated();
+    }
+
+    @Override
+    public synchronized void drawSelf() {
+        int size = mLocations.size();
+        for (int i=0; i<size; i++) {
+            Point3 location = mLocations.get(i);
+
+            MatrixState.pushMatrix();
+            MatrixState.translate(location.x, location.y, location.z);
+            mBall.drawSelf();
+            MatrixState.popMatrix();
         }
     }
 }
