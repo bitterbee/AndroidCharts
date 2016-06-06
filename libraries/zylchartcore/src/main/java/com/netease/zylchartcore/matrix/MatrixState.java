@@ -47,9 +47,19 @@ public class MatrixState {
         Matrix.translateM(currMatrix, 0, x, y, z);
     }
 
-    // 设置绕xyz轴移动
+    // 设置绕xyz轴转动
     public static void rotate(float angle, float x, float y, float z) {
         Matrix.rotateM(currMatrix, 0, angle, x, y, z);
+    }
+
+    // 设置绕xyz轴缩放
+    public static void scale(float xyz) {
+        scale(xyz, xyz, xyz);
+    }
+
+    // 设置绕xyz轴缩放
+    public static void scale(float x, float y, float z) {
+        Matrix.scaleM(currMatrix, 0, x, y, z);
     }
 
 
