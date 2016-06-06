@@ -37,9 +37,9 @@ void main(){
    gl_Position = uMVPMatrix * vec4(aPosition,1); //根据总变换矩阵计算此次绘制此顶点位置
    vec4 ambientTemp,diffuseTemp,specularTemp;	  //用来接收三个通道最终强度的变量
    directionalLight(normalize(aNormal),ambientTemp,diffuseTemp,specularTemp,uLightDirection,
-   vec4(0.15,0.15,0.15,1.0),vec4(0.8,0.8,0.8,1.0),vec4(0.7,0.7,0.7,1.0));
-   vAmbient=ambientTemp; 		//将环境光最终强度传给片元着色器
-   vDiffuse=diffuseTemp; 		//将散射光最终强度传给片元着色器
-   vSpecular=specularTemp; 		//将镜面光最终强度传给片元着色器
+   vec4(0.6,0.6,0.6,1.0),vec4(0.8,0.8,0.8,1.0),vec4(0.7,0.7,0.7,1.0));
+   vAmbient = ambientTemp; 		//将环境光最终强度传给片元着色器
+   vDiffuse = diffuseTemp; 		//将散射光最终强度传给片元着色器
+   vSpecular = specularTemp; 		//将镜面光最终强度传给片元着色器
    vPosition = aPosition; //将顶点的位置传给片元着色器
 }

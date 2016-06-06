@@ -2,7 +2,6 @@ package com.netease.zylchartcore.shape;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
 import android.opengl.GLES20;
@@ -18,20 +17,7 @@ import static com.netease.zylchartcore.c.Constant.*;
  * Created by zyl06 on 6/3/16.
  */
 public class Ball extends Shape {
-    int mProgram;// 自定义渲染管线着色器程序id
-    int muMVPMatrixHandle;// 总变换矩阵引用
-    int muMMatrixHandle;//位置、旋转变换矩阵引用
-    int muRHandle;// 球的半径属性引用
-    int maPositionHandle; // 顶点位置属性引用
-    int maNormalHandle; //顶点法向量属性引用
-    int maLightLocationHandle;//光源位置属性引用
-    int maCameraHandle; //摄像机位置属性引用
 
-    String mVertexShader;// 顶点着色器
-    String mFragmentShader;// 片元着色器
-
-    FloatBuffer mVertexBuffer;// 顶点坐标数据缓冲
-    FloatBuffer mNormalBuffer;//顶点法向量数据缓冲
     int vCount = 0;
 
     private Point3 mCenter;
@@ -173,7 +159,7 @@ public class Ball extends Shape {
     }
 
     @Override
-    public void drawSelf() {
+    protected void onDrawSelf() {
         MatrixState.translate(mCenter.x, mCenter.y, mCenter.z);
 
         // 制定使用某套着色器程序

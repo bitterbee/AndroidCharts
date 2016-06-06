@@ -19,7 +19,7 @@ public class PointClouds extends Shape {
 
     public void setPoints(List<Point3> points) {
         if (mBall == null) {
-            mBall = new Ball(Point3.ORIGIN3, 0.05f, 60);
+            mBall = new Ball(Point3.ORIGIN3, 0.01f, 60);
         }
         mLocations.clear();
         if (points != null) {
@@ -33,7 +33,7 @@ public class PointClouds extends Shape {
     }
 
     @Override
-    public synchronized void drawSelf() {
+    protected void onDrawSelf() {
         int size = mLocations.size();
         for (int i=0; i<size; i++) {
             Point3 location = mLocations.get(i);

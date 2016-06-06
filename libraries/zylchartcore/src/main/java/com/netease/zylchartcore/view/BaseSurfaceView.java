@@ -4,16 +4,14 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
-import android.graphics.Point;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import com.netease.zylchartcore.c.Constant;
-import com.netease.zylchartcore.data.Point3;
 import com.netease.zylchartcore.matrix.MatrixState;
-import com.netease.zylchartcore.shape.Ball;
+import com.netease.zylchartcore.shape.CoordinateSystem;
 import com.netease.zylchartcore.shape.Shape;
 
 import java.util.ArrayList;
@@ -27,15 +25,16 @@ public class BaseSurfaceView extends GLSurfaceView {
     private SceneRenderer mRenderer;//场景渲染器
 
     private List<Shape> mShapes = new ArrayList<>();
-    private Ball mBall;
+    private CoordinateSystem mCoordinateSystem = new CoordinateSystem();
 
     float xAngle = 0;// 绕x轴旋转的角度
     float yAngle = 0;// 绕y轴旋转的角度
     float zAngle = 0;// 绕z轴旋转的角度
 
     float mLightOffset = 0; //灯光的位置或方向的偏移量
-    private float mPreviousY;//上次的触控位置Y坐标
-    private float mPreviousX;//上次的触控位置X坐标
+    private float mPreviousY;
+    private float mPreviousX;
+    private boolean mIsShowCoordiateSystem = true;
 
     public BaseSurfaceView(Context context) {
         this(context, null);
@@ -69,6 +68,14 @@ public class BaseSurfaceView extends GLSurfaceView {
         requestRender();
     }
 
+    public boolean isShowCoordiateSystem() {
+        return mIsShowCoordiateSystem;
+    }
+
+    public void setShowCoordiateSystem(boolean showCoordiateSystem) {
+        mIsShowCoordiateSystem = showCoordiateSystem;
+    }
+
     //触摸事件回调方法
     @Override
     public boolean onTouchEvent(MotionEvent e) {
@@ -91,8 +98,6 @@ public class BaseSurfaceView extends GLSurfaceView {
     private class SceneRenderer implements GLSurfaceView.Renderer {
 
         public void onDrawFrame(GL10 gl) {
-            mBall = new Ball(new Point3(0,0,0), 0.8f, 10);
-
             //清除深度缓冲与颜色缓冲
             GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
             //初始化光源位置
@@ -103,6 +108,10 @@ public class BaseSurfaceView extends GLSurfaceView {
             MatrixState.rotate(xAngle, 1, 0, 0);
             MatrixState.rotate(yAngle, 0, 1, 0);
             MatrixState.rotate(zAngle, 0, 0, 1);
+
+            if (mIsShowCoordiateSystem) {
+                mCoordinateSystem.drawSelf();
+            }
 
             for (Shape shape : mShapes) {
                 MatrixState.pushMatrix();
@@ -132,6 +141,7 @@ public class BaseSurfaceView extends GLSurfaceView {
             for (Shape shape : mShapes) {
                 shape.initInSurfaceViewCreated();
             }
+            mCoordinateSystem.initInSurfaceViewCreated();
 
             //设置屏幕背景色RGBA
             GLES20.glClearColor(0f, 0f, 0f, 1.0f);
