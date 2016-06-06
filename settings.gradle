@@ -1,0 +1,2 @@
+include ':app', ':zylchartcore'
+project(':zylchartcore').projectDir = new File('libraries/zylchartcore')
