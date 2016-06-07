@@ -24,7 +24,7 @@ void main()
 
     vec3 color = vec3(1.0,1.0,1.0);//白色
     //最终颜色
-    vec4 finalColor = vec4(color,0);
+    vec4 finalColor = vec4(color,1);
     //给此片元颜色值
     gl_FragColor = finalColor*vAmbient + finalColor*vDiffuse + finalColor*vSpecular;
 }

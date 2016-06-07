@@ -60,7 +60,7 @@ public class PolylineActivity1 extends BaseChartActivity implements SeekBar.OnSe
         }
 
         if (mPolyline == null) {
-            mPolyline = new Polyline(points, false, false);
+            mPolyline = new Polyline(points, true, false);
             mSurfaceView.setShape(mPolyline);
         }
         mPolyline.setPoints(points);

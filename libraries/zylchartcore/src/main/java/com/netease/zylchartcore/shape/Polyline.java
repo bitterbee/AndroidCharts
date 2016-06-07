@@ -35,8 +35,10 @@ public class Polyline extends Shape {
         mLocations.clear();
         if (points != null) {
             mLocations.addAll(points);
+
+            mVertexCount = mLocations.size();
+            initVertexData();
         }
-        mVertexCount = mLocations.size();
     }
 
     private void initVertexData() {

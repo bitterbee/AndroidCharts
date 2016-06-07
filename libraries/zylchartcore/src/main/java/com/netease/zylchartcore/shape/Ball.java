@@ -153,14 +153,10 @@ public class Ball extends Shape {
 
     @Override
     protected void onInitInSurfaceViewCreated() {
-        if (!mIsInitialized) {
-            mIsInitialized = true;
-
-            // 初始化顶点坐标与着色数据
-            initVertexData();
-            // 初始化shader
-            initShader();
-        }
+        // 初始化顶点坐标与着色数据
+        initVertexData();
+        // 初始化shader
+        initShader();
     }
 
     @Override

@@ -10,28 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="427d545d-b771-4c09-af39-31e2e83fb3d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_zylchartcore_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_zylchartcore_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_zylchartcore_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_zylchartcore_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Arrow.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Arrow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/assets/ball_fragment_1.glsl" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/assets/ball_fragment_1.glsl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Circle.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Circle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Cone.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Cone.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/ConeSide.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/ConeSide.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/CoordinateSystem.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/CoordinateSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/LineSegment.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/LineSegment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/zylchartcore.iml" afterPath="$PROJECT_DIR$/libraries/zylchartcore/zylchartcore.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java" afterPath="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java" />
     </list>
     <ignored path="AndroidCharts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Polyline.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Polyline.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.33241758">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,11 +57,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PolylineActivity1.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PointClouds.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ball_fragment_1.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/assets/ball_fragment_1.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PolylineActivity1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9220779">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,31 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cone.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Cone.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Circle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Circle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="22" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Ball.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.148149">
-              <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+            <state vertical-scroll-proportion="-80.81481">
+              <caret line="154" column="49" selection-start-line="154" selection-start-column="49" selection-end-line="154" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,14 +143,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Arrow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Arrow.java">
+      <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2653,23 +2644,24 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java" />
-        <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/LineSegment.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/CoordinateSystem.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/ConeSide.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Cone.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Circle.java" />
-        <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Arrow.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/MainActivity.java" />
+        <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java" />
+        <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/assets/ball_fragment_1.glsl" />
         <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java" />
+        <option value="$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="270" />
-    <option name="y" value="168" />
+    <option name="x" value="191" />
+    <option name="y" value="145" />
     <option name="width" value="1248" />
     <option name="height" value="732" />
   </component>
@@ -3403,7 +3395,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="270" y="168" width="1248" height="732" extended-state="0" />
+    <frame x="191" y="145" width="1248" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -3411,8 +3403,8 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -3460,25 +3452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3333335">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/LineSegment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3511,16 +3484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.148149">
-          <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Arrow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3544,16 +3507,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3583,10 +3536,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/PointClouds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/assets/ball_fragment_1.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-80.81481">
+          <caret line="154" column="49" selection-start-line="154" selection-start-column="49" selection-end-line="154" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netease/zylcharts/samples/PolylineActivity1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9220779">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/zylchartcore/src/main/java/com/netease/zylchartcore/shape/Polyline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33241758">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
