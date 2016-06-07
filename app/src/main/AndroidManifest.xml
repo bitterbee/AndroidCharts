@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".samples.DotChartActivity1"/>
+        <activity android:name=".samples.DotChartActivity1"/>
+        <activity android:name=".samples.PolylineActivity1"/>
 
     </application>
 

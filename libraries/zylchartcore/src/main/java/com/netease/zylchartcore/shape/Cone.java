@@ -21,7 +21,7 @@ public class Cone extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
+    protected void onInitInSurfaceViewCreated() {
         mBottomCircle.initInSurfaceViewCreated();
         mConeSide.initInSurfaceViewCreated();
     }

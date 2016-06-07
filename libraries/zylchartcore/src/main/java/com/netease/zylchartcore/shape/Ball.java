@@ -23,6 +23,7 @@ public class Ball extends Shape {
     private Point3 mCenter;
     private float r = 0.8f;
     private int mAngleSpan = 10;
+    public static final Ball sInstance = new Ball(Point3.ORIGIN3, 0.01f, 30);
 
     public Ball(Point3 center, float r, int angleSpan) {
         this.mCenter = center;
@@ -151,11 +152,15 @@ public class Ball extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
-        // 初始化顶点坐标与着色数据
-        initVertexData();
-        // 初始化shader
-        initShader();
+    protected void onInitInSurfaceViewCreated() {
+        if (!mIsInitialized) {
+            mIsInitialized = true;
+
+            // 初始化顶点坐标与着色数据
+            initVertexData();
+            // 初始化shader
+            initShader();
+        }
     }
 
     @Override

@@ -83,7 +83,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
+    protected void onInitInSurfaceViewCreated() {
         initVertexData(mScale, mRadius, mEdgeCount);
         initShader();
     }

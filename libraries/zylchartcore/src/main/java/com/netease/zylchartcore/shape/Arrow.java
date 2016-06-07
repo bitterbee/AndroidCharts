@@ -18,7 +18,7 @@ public class Arrow extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
+    protected void onInitInSurfaceViewCreated() {
         mCone.initInSurfaceViewCreated();
         mLineSegment.initInSurfaceViewCreated();
     }

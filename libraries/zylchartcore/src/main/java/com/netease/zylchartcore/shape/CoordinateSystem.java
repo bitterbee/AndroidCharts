@@ -13,7 +13,7 @@ public class CoordinateSystem extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
+    protected void onInitInSurfaceViewCreated() {
         mYArrow.initInSurfaceViewCreated();
     }
 

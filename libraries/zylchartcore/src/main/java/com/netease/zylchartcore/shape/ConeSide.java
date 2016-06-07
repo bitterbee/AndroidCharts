@@ -98,7 +98,7 @@ public class ConeSide extends Shape {
     }
 
     @Override
-    public void initInSurfaceViewCreated() {
+    protected void onInitInSurfaceViewCreated() {
         initVertexData(mScale, mRadius, mHeight, mFaceCount);
         initShader();
     }

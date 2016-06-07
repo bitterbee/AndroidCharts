@@ -9,30 +9,45 @@ import com.netease.zylchartcore.shader.ShaderUtil;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by zyl06 on 6/6/16.
+ * Created by zyl06 on 6/7/16.
  */
-public class LineSegment extends Shape {
-    private int vCount = 6;
-    private Point3 mStart;
-    private Point3 mEnd;
+public class Polyline extends Shape {
+    private Ball mBall = Ball.sInstance;
+    private List<Point3> mLocations = new ArrayList<>();
+    private boolean mIsShowPoints = false;
+    private boolean mIsClosed = false;
+    protected int mVertexCount = 0; // 顶点数量
 
-    public LineSegment(Point3 start, Point3 end) {
-        mStart = start;
-        mEnd = end;
+    public Polyline(List<Point3> points, boolean isShowPoints, boolean isClosed) {
+        this.mIsShowPoints = isShowPoints;
+        this.mIsClosed = isClosed;
+        setPoints(points);
+    }
+
+    public void setPoints(List<Point3> points) {
+//        if (mBall == null) {
+//            mBall = new Ball(Point3.ORIGIN3, 0.01f, 60);
+//        }
+        mLocations.clear();
+        if (points != null) {
+            mLocations.addAll(points);
+        }
+        mVertexCount = mLocations.size();
     }
 
     private void initVertexData() {
-        float[] vertices = new float[6];
+        float[] vertices = new float[3 * mVertexCount];
         int count = 0;
-        vertices[count++] = mStart.x;
-        vertices[count++] = mStart.y;
-        vertices[count++] = mStart.z;
-
-        vertices[count++] = mEnd.x;
-        vertices[count++] = mEnd.y;
-        vertices[count++] = mEnd.z;
+        for (int i=0; i<mVertexCount; i++) {
+            Point3 location = mLocations.get(i);
+            vertices[count++] = location.x;
+            vertices[count++] = location.y;
+            vertices[count++] = location.z;
+        }
 
         ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length * 4);
         vbb.order(ByteOrder.nativeOrder());
@@ -55,12 +70,26 @@ public class LineSegment extends Shape {
 
     @Override
     protected void onInitInSurfaceViewCreated() {
+        mBall.initInSurfaceViewCreated();
+
         initVertexData();
         initShader();
     }
 
     @Override
     protected void onDrawSelf() {
+        if (mIsShowPoints) {
+            int size = mLocations.size();
+            for (int i=0; i<size; i++) {
+                Point3 location = mLocations.get(i);
+
+                MatrixState.pushMatrix();
+                MatrixState.translate(location.x, location.y, location.z);
+                mBall.drawSelf();
+                MatrixState.popMatrix();
+            }
+        }
+
         GLES20.glUseProgram(mProgram);
         GLES20.glUniformMatrix4fv(muMVPMatrixHandle, 1, false, MatrixState.getFinalMatrix(), 0);
         GLES20.glUniformMatrix4fv(muMMatrixHandle, 1, false, MatrixState.getMMatrix(), 0);
@@ -68,11 +97,9 @@ public class LineSegment extends Shape {
         GLES20.glUniform3fv(maLightLocationHandle, 1, MatrixState.lightPositionFB);
 
         GLES20.glVertexAttribPointer(maPositionHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mVertexBuffer);
-
         GLES20.glEnableVertexAttribArray(maPositionHandle);
 
-        GLES20.glLineWidth(2.0f);
-        GLES20.glDrawArrays(GLES20.GL_LINES, 0, vCount);
+        GLES20.glLineWidth(1.0f);
+        GLES20.glDrawArrays(GLES20.GL_LINE_STRIP, 0, mVertexCount);
     }
-
 }

@@ -27,6 +27,8 @@ public abstract class Shape {
     protected float mYAngle = 0;
     protected float mZAngle = 0;
 
+    protected boolean mIsInitialized = false;
+
     public void setXAngle(float XAngle) {
         this.mXAngle = XAngle;
     }
@@ -51,6 +53,13 @@ public abstract class Shape {
         MatrixState.popMatrix();
     }
 
-    public abstract void initInSurfaceViewCreated();
+    public void initInSurfaceViewCreated() {
+        if (!mIsInitialized) {
+            mIsInitialized = true;
+            onInitInSurfaceViewCreated();
+        }
+    }
+
+    protected abstract void onInitInSurfaceViewCreated();
     protected abstract void onDrawSelf();
 }
