@@ -14,7 +14,7 @@ import java.nio.ByteOrder;
  * Created by zyl06 on 6/6/16.
  */
 public class LineSegment extends Shape {
-    private int vCount = 6;
+    private int vCount = 2;
     private Point3 mStart;
     private Point3 mEnd;
 
