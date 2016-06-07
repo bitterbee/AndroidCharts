@@ -34,6 +34,8 @@ public class PolylineActivity1 extends BaseChartActivity implements SeekBar.OnSe
 
         //普通拖拉条被拉动的处理代码
         mSeekBar = (SeekBar) this.findViewById(R.id.SeekBar01);
+        mSeekBar.setMax(100);
+        mSeekBar.setProgress(10);
         mSeekBar.setOnSeekBarChangeListener(this);
     }
 

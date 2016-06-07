@@ -16,7 +16,7 @@ import java.util.List;
  * Created by zyl06 on 6/7/16.
  */
 public class Polyline extends Shape {
-    private Ball mBall = Ball.sInstance;
+    private Ball mBall = null;
     private List<Point3> mLocations = new ArrayList<>();
     private boolean mIsShowPoints = false;
     private boolean mIsClosed = false;
@@ -29,9 +29,9 @@ public class Polyline extends Shape {
     }
 
     public void setPoints(List<Point3> points) {
-//        if (mBall == null) {
-//            mBall = new Ball(Point3.ORIGIN3, 0.01f, 60);
-//        }
+        if (mBall == null) {
+            mBall = new Ball(Point3.ORIGIN3, 0.01f, 30);
+        }
         mLocations.clear();
         if (points != null) {
             mLocations.addAll(points);
@@ -102,6 +102,8 @@ public class Polyline extends Shape {
         GLES20.glEnableVertexAttribArray(maPositionHandle);
 
         GLES20.glLineWidth(1.0f);
-        GLES20.glDrawArrays(GLES20.GL_LINE_STRIP, 0, mVertexCount);
+
+        int lineMode = mIsClosed ? GLES20.GL_LINE_LOOP : GLES20.GL_LINE_STRIP;
+        GLES20.glDrawArrays(lineMode, 0, mVertexCount);
     }
 }
