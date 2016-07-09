@@ -8,4 +8,6 @@ public class Constant {
     public static final float UNIT_SIZE=1f;
     //计算GLSurfaceView的宽高比
     public static float ratio;
+
+    public static final float EPSILON = 1.0e-6f;
 }

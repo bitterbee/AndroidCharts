@@ -1,5 +1,8 @@
 package com.netease.zylchartcore.data.operator;
 
+import com.netease.zylchartcore.c.Constant;
+import com.netease.zylchartcore.data.Point3;
+
 /**
  * Created by zyl06 on 6/6/16.
  */
@@ -33,5 +36,25 @@ public class VectorUtil {
         float y = a[2] * b[0] - a[0] * b[2];
         float z = a[0] * b[1] - a[1] * b[0];
         return new float[]{x, y, z};
+    }
+
+    public static float getAngleOf2Vector(final Point3 v1, final Point3 v2) {
+        float r, val, cos, angle;
+        float len1 = (float)Math.sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z);
+        float len2 = (float)Math.sqrt(v2.x * v2.x + v2.y * v2.y + v2.z * v2.z);
+        r = v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+        val = len1 * len2;
+        if (Math.abs(val) < Constant.EPSILON) {
+            angle = (float)(Math.PI / 2.0);
+        } else {
+            cos = r / val;
+            if (cos > 1.0) {
+                return 0.0f;
+            } else if (cos < -1.0) {
+                return (float) Math.PI;
+            }
+            angle = (float) Math.acos(cos);
+        }
+        return angle;
     }
 }
