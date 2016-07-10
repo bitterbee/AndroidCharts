@@ -1,11 +1,8 @@
 package com.netease.zylchartcore.activity;
 
-import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.netease.zylchartcore.R;
 import com.netease.zylchartcore.view.BaseSurfaceView;

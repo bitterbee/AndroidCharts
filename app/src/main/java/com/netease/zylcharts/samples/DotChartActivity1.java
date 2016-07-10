@@ -9,7 +9,7 @@ import android.widget.SeekBar;
 import com.netease.zylchartcore.activity.BaseChartActivity;
 import com.netease.zylchartcore.data.Point3;
 import com.netease.zylchartcore.shape.PointClouds;
-import com.netease.zylchartcore.view.BaseSurfaceView;
+import com.netease.zylchartcore.view.BaseRotateSurfaceView;
 import com.netease.zylcharts.R;
 
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ public class DotChartActivity1 extends BaseChartActivity implements SeekBar.OnSe
         super.onCreate(savedInstanceState);
 
         LayoutInflater inflater = LayoutInflater.from(this);
-        ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.activity_point_clouds, mContainer);
+        ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.activity_rotate_point_clouds, mContainer);
 
-        mSurfaceView = (BaseSurfaceView) vg.findViewById(R.id.surface_view);
+        mSurfaceView = (BaseRotateSurfaceView) vg.findViewById(R.id.surface_view);
         setPointCount(10);
 
         //普通拖拉条被拉动的处理代码

@@ -1,8 +1,5 @@
 package com.netease.zylchartcore.view;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -12,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
 import com.netease.zylchartcore.c.Constant;
+import com.netease.zylchartcore.data.Point3;
 import com.netease.zylchartcore.matrix.MatrixState;
 import com.netease.zylchartcore.shape.CoordinateSystem;
 import com.netease.zylchartcore.shape.Shape;
@@ -19,27 +17,30 @@ import com.netease.zylchartcore.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+
 /**
- * Created by zyl06 on 6/3/16.
+ * Created by zyl06 on 7/10/16.
  */
 public class BaseSurfaceView extends GLSurfaceView {
-    private final float TOUCH_SCALE_FACTOR = 120.0f / 320;//角度缩放比例
     private SceneRenderer mRenderer;//场景渲染器
 
     private List<Shape> mShapes = new ArrayList<>();
     private CoordinateSystem mCoordinateSystem = new CoordinateSystem();
 
+    private Point3 mOrigin = new Point3(0,0,0);
     private float xAngle = 0;// 绕x轴旋转的角度
     private float yAngle = 0;// 绕y轴旋转的角度
     private float zAngle = 0;// 绕z轴旋转的角度
 
-    private float mTouchScale = 1;// 缩放比例
+    protected float mTouchScale = 1;// 缩放比例
 
     float mLightOffset = 0; //灯光的位置或方向的偏移量
     private boolean mIsShowCoordiateSystem = true;
 
-    private GestureDetector mGestureDetector = null;
-    private ScaleGestureDetector mScaleGestureDetector = null;
+    protected GestureDetector mGestureDetector = null;
+    protected ScaleGestureDetector mScaleGestureDetector = null;
 
     public BaseSurfaceView(Context context) {
         this(context, null);
@@ -63,9 +64,6 @@ public class BaseSurfaceView extends GLSurfaceView {
         mRenderer = new SceneRenderer();    //创建场景渲染器
         setRenderer(mRenderer);             //设置渲染器
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);//设置渲染模式为被动渲染
-
-        mGestureDetector = new GestureDetector(this.getContext(), new GestureListener());
-        mScaleGestureDetector = new ScaleGestureDetector(this.getContext(), new ScaleGestureListener());
     }
 
     public void addShape(Shape s) {
@@ -111,6 +109,7 @@ public class BaseSurfaceView extends GLSurfaceView {
             MatrixState.pushMatrix();
 
             MatrixState.scale(mTouchScale);
+            MatrixState.translate(mOrigin.x, mOrigin.y, mOrigin.z);
             MatrixState.rotate(xAngle, 1, 0, 0);
             MatrixState.rotate(yAngle, 0, 1, 0);
             MatrixState.rotate(zAngle, 0, 0, 1);
@@ -162,6 +161,12 @@ public class BaseSurfaceView extends GLSurfaceView {
         this.mLightOffset = lightOffset;
     }
 
+    public void translate(float x, float y, float z) {
+        mOrigin.x += x;
+        mOrigin.y += y;
+        mOrigin.z += z;
+    }
+
     public float incrYAngle(float delta) {
         yAngle += delta;
         return yAngle;
@@ -175,53 +180,5 @@ public class BaseSurfaceView extends GLSurfaceView {
     public float incrZAngle(float delta) {
         zAngle += delta;
         return zAngle;
-    }
-
-    private class ScaleGestureListener implements ScaleGestureDetector.OnScaleGestureListener {
-        private float mBeginScale = 1;
-
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            float factor = detector.getScaleFactor();
-            mTouchScale = mBeginScale * factor;
-            return false;
-        }
-
-        @Override
-        public boolean onScaleBegin(ScaleGestureDetector detector) {
-            mBeginScale = mTouchScale;
-            return true;
-        }
-
-        @Override
-        public void onScaleEnd(ScaleGestureDetector detector) {
-        }
-    }
-
-    private class GestureListener extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onScroll(MotionEvent e1, MotionEvent e2,
-                                float distanceX, float distanceY) {
-            incrYAngle(-distanceX * TOUCH_SCALE_FACTOR); //设置填充椭圆绕y轴旋转的角度
-            incrXAngle(-distanceY * TOUCH_SCALE_FACTOR);//设置填充椭圆绕x轴旋转的角度
-
-            return true;
-        }
-
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                               float velocityY) {
-            return false;
-        }
-
-        @Override
-        public boolean onDown(MotionEvent e) {
-            return false;
-        }
-
-        @Override
-        public boolean onDoubleTap(MotionEvent e) {
-            return false;
-        }
     }
 }

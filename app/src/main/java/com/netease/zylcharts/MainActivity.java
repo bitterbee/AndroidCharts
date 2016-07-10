@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.netease.zylcharts.samples.DotChartActivity1;
 import com.netease.zylcharts.samples.PolylineActivity1;
+import com.netease.zylcharts.samples.SplineActivity1;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         ArrayList<ContentItem> objects = new ArrayList<ContentItem>();
         objects.add(new ContentItem("Dot Chart", "A simple demonstration of the dot chart."));
         objects.add(new ContentItem("Polyline Chart", "A simple demonstration of the polyline chart."));
+        objects.add(new ContentItem("LH BSpline Chart", "A simple demonstration of the b-spline chart."));
 
         MainAdapter adapter = new MainAdapter(this, objects);
 
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 1:
                 i = new Intent(this, PolylineActivity1.class);
+                break;
+            case 2:
+                i = new Intent(this, SplineActivity1.class);
                 break;
             default:
                 break;

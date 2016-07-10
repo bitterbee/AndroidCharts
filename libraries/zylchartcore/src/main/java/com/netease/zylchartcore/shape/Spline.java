@@ -12,7 +12,6 @@ import com.netease.zylchartcore.shader.ShaderUtil;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +31,6 @@ public class Spline extends Shape {
     private Point3[] mTangents; // 切向向量
     private Float[] mTangentMagnitudes0; //一个控制点 i 有 2 个切向值，(i-1, i)，(i, i+1)
     private Float[] mTangentMagnitudes1; //
-
-    // render about
-    protected FloatBuffer mCtrlVertexBuffer;  // 顶点坐标数据缓冲
 
     public Spline(List<Point3> ctrlPoints, boolean isShowControlPoints, int splineMode) {
         this.mIsShowControlPoints = isShowControlPoints;
@@ -139,7 +135,7 @@ public class Spline extends Shape {
                 float tension2 = 1 - (float) Math.sqrt(Math.sin(0.5 * ang));
                 float tension = tension1 > tension2 ? tension1 : tension2;
                 for (int k = 1; k <= divCount; k++) {
-                    mAllPoints.add(getInterpoint(i, k / divCount, tension));
+                    mAllPoints.add(getInterpoint(i, 1.0f * k / divCount, tension));
                 }
             }
         }
@@ -231,9 +227,10 @@ public class Spline extends Shape {
                 float f = 0.5f * (1.0f - t) * (1.0f - t);
                 float g = (1.0f - t) * t + 0.5f;
                 float h = 0.5f * t * t;
-                int index0 = i - 1;
+                int index0 = (i - 1 < 0) ? 0 : i - 1;
                 int index1 = i;
-                int index2 = i + 1;
+                int index2 = (i + 1) > (size - 1) ? (size - 1) : (i + 1);
+
                 v.x = mCP[index0].x * f + mCP[index1].x * g + mCP[index2].x * h;
                 v.y = mCP[index0].y * f + mCP[index1].y * g + mCP[index2].y * h;
                 v.z = mCP[index0].z * f + mCP[index1].z * g + mCP[index2].z * h;
@@ -297,15 +294,15 @@ public class Spline extends Shape {
         for (Point3 cp : mCP) {
             cpList.add(cp);
         }
-        doInitVertexData(cpList, mCtrlVertexBuffer, mCP.length);
-        doInitVertexData(mAllPoints, mVertexBuffer, mAllPoints.size());
+        doInitVertexData();
     }
 
-    private void doInitVertexData(List<Point3> point3s, FloatBuffer vertexBuffer, int vertexCount) {
+    private void doInitVertexData() {
+        int vertexCount = mAllPoints.size();
         float[] vertices = new float[3 * vertexCount];
         int count = 0;
         for (int i = 0; i < vertexCount; i++) {
-            Point3 location = point3s.get(i);
+            Point3 location = mAllPoints.get(i);
             vertices[count++] = location.x;
             vertices[count++] = location.y;
             vertices[count++] = location.z;
@@ -313,9 +310,9 @@ public class Spline extends Shape {
 
         ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length * 4);
         vbb.order(ByteOrder.nativeOrder());
-        vertexBuffer = vbb.asFloatBuffer();
-        vertexBuffer.put(vertices);
-        vertexBuffer.position(0);
+        mVertexBuffer = vbb.asFloatBuffer();
+        mVertexBuffer.put(vertices);
+        mVertexBuffer.position(0);
     }
 
     private void initShader() {
