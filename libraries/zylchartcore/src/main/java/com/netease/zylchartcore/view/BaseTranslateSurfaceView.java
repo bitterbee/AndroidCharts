@@ -14,7 +14,7 @@ import java.util.List;
  * Created by zyl06 on 7/10/16.
  */
 public class BaseTranslateSurfaceView extends BaseSurfaceView {
-    private final float TOUCH_SCALE_FACTOR = -1.0f / 320;//角度缩放比例
+    private final float TOUCH_SCALE_FACTOR = -1.0f / 400;//角度缩放比例
 
     public BaseTranslateSurfaceView(Context context) {
         this(context, null);
