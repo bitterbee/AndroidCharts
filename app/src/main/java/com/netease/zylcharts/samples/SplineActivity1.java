@@ -63,7 +63,7 @@ public class SplineActivity1 extends BaseChartActivity implements SeekBar.OnSeek
         }
 
         if (mSpline == null) {
-            mSpline = new Spline(points, true, SplineMode.SPLMODE_SPLINE);
+            mSpline = new Spline(points, true, SplineMode.SPLMODE_BSPLINE);
             mSurfaceView.setShape(mSpline);
         }
         mSpline.setPoints(points);

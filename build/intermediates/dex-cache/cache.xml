@@ -5,8 +5,50 @@
         jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/AndroidCharts/zylchartcore/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="1e69b14fa2be43e1050080adb8b5d98a211fa204">
+        sha1="13c0733cdb07f959ee4ba9d42d17f38b4e198097">
         <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/AndroidCharts-zylchartcore-unspecified_cc289f8042452cbebf9fc252413ed2ba15c4c8fd.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_f691d211679bfb7d88aef5a0bf386f2f91feac20.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_5b1c388fcabef90013bd751836bcdcf29efc089d.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_922e4e6da2caf432012942826472317a848a8db3.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_9e0a4d2e71330616a92b4c1033549cf6e2a2a020.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/android-sdks/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_2fac5fdd35d97068c4357a71fd88772758ad0843.jar" />
+    </item>
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_7903a63d7835dbcef06f31d0ce2a9effbbd34bc2.jar" />
     </item>
 
 </items>
