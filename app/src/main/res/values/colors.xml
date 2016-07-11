@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="transparent">#00000000</color>
+
+    <!--灰色-->
+    <color name="black_alpha5">#0d000000</color>
+    <color name="black_alpha15">#26000000</color>
+    <color name="black_alpha80">#cc000000</color>
+
+    <!--common-->
+    <!--严选中的红色-->
+    <color name="chart_red">#ab2b2b</color>
 </resources>

@@ -2,9 +2,21 @@ package com.netease.zylcharts.samples;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.netease.zylchartcore.activity.BaseChartActivity;
 import com.netease.zylchartcore.data.Point3;
@@ -20,8 +32,10 @@ import java.util.List;
  * Created by zyl06 on 7/11/16.
  */
 public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnSeekBarChangeListener {
-    private SeekBar mSeekBar;
-    private Spline mSpline;
+    protected SeekBar mSeekBar;
+    protected Spline mSpline;
+
+    List<Point3> mPoints = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,17 +75,99 @@ public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnS
     }
 
     private void setPointCount(int count) {
-        List<Point3> points = new ArrayList<>();
+        mPoints = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            points.add(new Point3(i / 30.0f, (float) Math.random() / 3.0f, 0));
+            mPoints.add(new Point3(i / 30.0f, (float) Math.random() / 3.0f, 0));
         }
 
         if (mSpline == null) {
-            mSpline = new Spline(points, true, getSplineMode());
+            mSpline = new Spline(mPoints, true, getSplineMode());
             mSurfaceView.setShape(mSpline);
         }
-        mSpline.setPoints(points);
+        mSpline.setPoints(mPoints);
         mSurfaceView.requestRender();
+    }
+
+    public void setPoint(int idx, Point3 point) {
+        if (mSpline != null && mPoints != null && idx >= 0 && idx < mPoints.size()) {
+            mPoints.set(idx, point);
+            mSpline.setPoints(mPoints);
+            mSurfaceView.requestRender();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_lh, menu);
+        return true;
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.lh_change_value:
+                showDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View rootView = LayoutInflater.from(this).inflate(R.layout.dialog_lh_change, null);
+        builder.setView(rootView);
+        final AlertDialog alertDialog = builder.create();
+        Window window = alertDialog.getWindow();
+        WindowManager.LayoutParams params = window.getAttributes();
+        params.gravity = Gravity.CENTER;
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(params);
+        alertDialog.show();
+        alertDialog.setCancelable(false);
+        alertDialog.setCanceledOnTouchOutside(false);
+        final EditText etDay = (EditText) rootView.findViewById(R.id.day_value);
+        final EditText etLHValue = (EditText) rootView.findViewById(R.id.lh_value);
+
+        Button btnNegative = (Button) rootView.findViewById(R.id.btn_alert_negative);
+        Button btnPositive = (Button) rootView.findViewById(R.id.btn_alert_positive);
+        btnPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String strDay = etDay.getText().toString();
+                int day = -1;
+                try {
+                    day = Integer.parseInt(strDay);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+                String strValue = etLHValue.getText().toString();
+                float lhValue = -1;
+                try {
+                    lhValue = Float.parseFloat(strValue);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+
+                if (day >= 0 && day < mPoints.size() && lhValue > 0) {
+                    setPoint(day, new Point3(1.0f * day / mPoints.size(), lhValue, 0));
+                    alertDialog.dismiss();
+                } else {
+                    Toast.makeText(BaseSplineActivity.this, "输出有错误哦，day 0 ~ point.size()，lhValue > 0", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnNegative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
     }
 }
 

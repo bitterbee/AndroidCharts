@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/day_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:hint="日期。e.g. 15"/>
+
+    <EditText
+        android:id="@+id/lh_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:hint="LH值"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+        <Button
+            android:id="@+id/btn_alert_negative"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_alert_dialog"
+            android:textColor="@color/black_alpha80"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/cancel"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="@dimen/border_width_1px"
+            android:layout_height="@dimen/alert_dialog_btn_height"
+            android:background="@color/black_alpha15" />
+
+        <Button
+            android:id="@+id/btn_alert_positive"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_alert_dialog"
+            android:textColor="@color/chart_red"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/confirm"/>
+    </LinearLayout>
+
+</LinearLayout>

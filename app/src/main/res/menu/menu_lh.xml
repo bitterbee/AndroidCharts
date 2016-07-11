@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/lh_change_value"
+          android:icon="@mipmap/edit_value"
+          android:title="@string/lh_menu_change_value"
+          android:showAsAction="ifRoom"/>
+</menu>
