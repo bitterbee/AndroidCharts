@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.netease.zylcharts.samples.BezierActivity;
 import com.netease.zylcharts.samples.DotChartActivity1;
 import com.netease.zylcharts.samples.PolylineActivity1;
-import com.netease.zylcharts.samples.SplineActivity1;
-import com.netease.zylcharts.samples.SplineActivity2;
+import com.netease.zylcharts.samples.BSplineActivity;
+import com.netease.zylcharts.samples.SplineActivity;
 
 import java.util.ArrayList;
 
@@ -25,14 +26,18 @@ public class MainActivity extends AppCompatActivity
         ArrayList<ContentItem> objects = new ArrayList<ContentItem>();
         objects.add(new ContentItem("Dot Chart", "A simple demonstration of the dot chart."));
         objects.add(new ContentItem("Polyline Chart", "A simple demonstration of the polyline chart."));
+        objects.add(new ContentItem("LH Bezier Chart", "A simple demonstration of the bezier chart."));
         objects.add(new ContentItem("LH BSpline Chart", "A simple demonstration of the b-spline chart."));
         objects.add(new ContentItem("LH Spline Chart", "A simple demonstration of the spline chart."));
+
 
         MainAdapter adapter = new MainAdapter(this, objects);
 
         ListView lv = (ListView) findViewById(R.id.listView1);
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(this);
+        if (lv != null) {
+            lv.setAdapter(adapter);
+            lv.setOnItemClickListener(this);
+        }
     }
 
     @Override
@@ -47,10 +52,13 @@ public class MainActivity extends AppCompatActivity
                 i = new Intent(this, PolylineActivity1.class);
                 break;
             case 2:
-                i = new Intent(this, SplineActivity1.class);
+                i = new Intent(this, BezierActivity.class);
                 break;
             case 3:
-                i = new Intent(this, SplineActivity2.class);
+                i = new Intent(this, BSplineActivity.class);
+                break;
+            case 4:
+                i = new Intent(this, SplineActivity.class);
                 break;
             default:
                 break;
