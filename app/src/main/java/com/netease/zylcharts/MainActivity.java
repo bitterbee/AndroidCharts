@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        mObjects.add(new ContentItem(DotChartActivity1.class, "Dot Chart", "A simple demonstration of the dot chart."));
-//        mObjects.add(new ContentItem(PolylineActivity1.class, "Polyline Chart", "A simple demonstration of the polyline chart."));
-//        mObjects.add(new ContentItem(BezierActivity.class, "LH Bezier Chart", "A simple demonstration of the bezier chart."));
+        mObjects.add(new ContentItem(DotChartActivity1.class, "Dot Chart", "A simple demonstration of the dot chart."));
+        mObjects.add(new ContentItem(PolylineActivity1.class, "Polyline Chart", "A simple demonstration of the polyline chart."));
+        mObjects.add(new ContentItem(BezierActivity.class, "LH Bezier Chart", "A simple demonstration of the bezier chart."));
         mObjects.add(new ContentItem(BSplineActivity.class, "LH BSpline Chart", "A simple demonstration of the b-spline chart."));
         mObjects.add(new ContentItem(SplineActivity.class, "LH Spline Chart", "A simple demonstration of the spline chart."));
 
