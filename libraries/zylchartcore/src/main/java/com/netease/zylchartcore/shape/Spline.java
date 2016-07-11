@@ -252,9 +252,9 @@ public class Spline extends Shape {
                 v.z = 0.0f;
                 int n = size - 1;
                 for (int j = 0; j < size; j++) {
-                    v.x += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (int) (n - j)) * mCP[j].x;
-                    v.y += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (int) (n - j)) * mCP[j].y;
-                    v.z += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (int) (n - j)) * mCP[j].z;
+                    v.x += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (n - j)) * mCP[j].x;
+                    v.y += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (n - j)) * mCP[j].y;
+                    v.z += comb(n, j) * Math.pow(t, j) * Math.pow((1 - t), (n - j)) * mCP[j].z;
                 }
             } else if (mSplineMode == SplineMode.SPLMODE_LINEAR) {
                 v = mCP[i].multiple(1.0f - t).add(mCP[i + 1].multiple(t));
@@ -277,9 +277,9 @@ public class Spline extends Shape {
         return v;
     }
 
-    private int comb(int x, int y) {
-        int a = 1;
-        int b = 1;
+    private float comb(int x, int y) {
+        float a = 1;
+        float b = 1;
         for (int i = 2; i <= x - y; i++) {
             a *= i;
         }

@@ -18,20 +18,20 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener {
 
+    ArrayList<ContentItem> mObjects = new ArrayList<ContentItem>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<ContentItem> objects = new ArrayList<ContentItem>();
-        objects.add(new ContentItem("Dot Chart", "A simple demonstration of the dot chart."));
-        objects.add(new ContentItem("Polyline Chart", "A simple demonstration of the polyline chart."));
-        objects.add(new ContentItem("LH Bezier Chart", "A simple demonstration of the bezier chart."));
-        objects.add(new ContentItem("LH BSpline Chart", "A simple demonstration of the b-spline chart."));
-        objects.add(new ContentItem("LH Spline Chart", "A simple demonstration of the spline chart."));
+        mObjects.add(new ContentItem(DotChartActivity1.class, "Dot Chart", "A simple demonstration of the dot chart."));
+        mObjects.add(new ContentItem(PolylineActivity1.class, "Polyline Chart", "A simple demonstration of the polyline chart."));
+        mObjects.add(new ContentItem(BezierActivity.class, "LH Bezier Chart", "A simple demonstration of the bezier chart."));
+        mObjects.add(new ContentItem(BSplineActivity.class, "LH BSpline Chart", "A simple demonstration of the b-spline chart."));
+        mObjects.add(new ContentItem(SplineActivity.class, "LH Spline Chart", "A simple demonstration of the spline chart."));
 
-
-        MainAdapter adapter = new MainAdapter(this, objects);
+        MainAdapter adapter = new MainAdapter(this, mObjects);
 
         ListView lv = (ListView) findViewById(R.id.listView1);
         if (lv != null) {
@@ -42,27 +42,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> av, View v, int pos, long arg3) {
-        Intent i = null;
-
-        switch (pos) {
-            case 0:
-                i = new Intent(this, DotChartActivity1.class);
-                break;
-            case 1:
-                i = new Intent(this, PolylineActivity1.class);
-                break;
-            case 2:
-                i = new Intent(this, BezierActivity.class);
-                break;
-            case 3:
-                i = new Intent(this, BSplineActivity.class);
-                break;
-            case 4:
-                i = new Intent(this, SplineActivity.class);
-                break;
-            default:
-                break;
-        }
+        ContentItem ci = mObjects.get(pos);
+        Intent i = new Intent(this, ci.getActivityClass());
         if (i != null) {
             startActivity(i);
         }
