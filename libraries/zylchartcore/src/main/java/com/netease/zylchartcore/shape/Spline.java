@@ -1,9 +1,11 @@
 package com.netease.zylchartcore.shape;
 
+import android.graphics.Color;
 import android.opengl.GLES20;
 
 import com.netease.zylchartcore.ChartsCore;
 import com.netease.zylchartcore.c.Constant;
+import com.netease.zylchartcore.data.ControlPoint3;
 import com.netease.zylchartcore.data.Point3;
 import com.netease.zylchartcore.data.operator.PointUtil;
 import com.netease.zylchartcore.data.operator.VectorUtil;
@@ -19,10 +21,12 @@ import java.util.List;
  * Created by zyl06 on 7/9/16.
  */
 public class Spline extends Shape {
-    private Ball mBall = null;
+    private Ball mWhiteBall = null;  // 初始值
+    private Ball mGreenBall = null;  // 被直接设置的点
+    private Ball mYellowBall = null; // 被影响到的点
     private boolean mIsShowControlPoints = false;
 
-    private Point3[] mCP;
+    private ControlPoint3[] mCP;
 
     private int mSplineMode = SplineMode.SPLMODE_SPLINE;
     private boolean mIsNormalSpline = false;
@@ -32,18 +36,24 @@ public class Spline extends Shape {
     private Float[] mTangentMagnitudes0; //一个控制点 i 有 2 个切向值，(i-1, i)，(i, i+1)
     private Float[] mTangentMagnitudes1; //
 
-    public Spline(List<Point3> ctrlPoints, boolean isShowControlPoints, int splineMode) {
+    public Spline(List<ControlPoint3> ctrlPoints, boolean isShowControlPoints, int splineMode) {
         this.mIsShowControlPoints = isShowControlPoints;
         this.mSplineMode = splineMode;
         setPoints(ctrlPoints);
     }
 
-    public void setPoints(List<Point3> points) {
-        if (mBall == null) {
-            mBall = new Ball(Point3.ORIGIN3, 0.01f, 30);
+    public void setPoints(List<ControlPoint3> points) {
+        if (mWhiteBall == null) {
+            mWhiteBall = new Ball(Point3.ORIGIN3, 0.01f, 30, Color.WHITE);
+        }
+        if (mGreenBall == null) {
+            mGreenBall = new Ball(Point3.ORIGIN3, 0.01f, 30, Color.GREEN);
+        }
+        if (mYellowBall == null) {
+            mYellowBall = new Ball(Point3.ORIGIN3, 0.01f, 30, Color.YELLOW);
         }
         if (points != null) {
-            mCP = new Point3[points.size()];
+            mCP = new ControlPoint3[points.size()];
             points.toArray(mCP);
 
             updateInterpoints();
@@ -329,7 +339,9 @@ public class Spline extends Shape {
 
     @Override
     protected void onInitInSurfaceViewCreated() {
-        mBall.initInSurfaceViewCreated();
+        mWhiteBall.initInSurfaceViewCreated();
+        mGreenBall.initInSurfaceViewCreated();
+        mYellowBall.initInSurfaceViewCreated();
 
         initVertexData();
         initShader();
@@ -340,11 +352,17 @@ public class Spline extends Shape {
         if (mIsShowControlPoints) {
             int size = mCP.length;
             for (int i = 0; i < size; i++) {
-                Point3 location = mCP[i];
+                ControlPoint3 controlPoint = mCP[i];
 
                 MatrixState.pushMatrix();
-                MatrixState.translate(location.x, location.y, location.z);
-                mBall.drawSelf();
+                MatrixState.translate(controlPoint.x, controlPoint.y, controlPoint.z);
+                if (controlPoint.color == Color.GREEN) {
+                    mGreenBall.drawSelf();
+                } else if (controlPoint.color == Color.YELLOW) {
+                    mYellowBall.drawSelf();
+                } else {
+                    mWhiteBall.drawSelf();
+                }
                 MatrixState.popMatrix();
             }
         }

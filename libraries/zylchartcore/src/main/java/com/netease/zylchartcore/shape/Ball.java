@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 
+import android.graphics.Color;
 import android.opengl.GLES20;
 
 import com.netease.zylchartcore.ChartsCore;
@@ -24,8 +25,13 @@ public class Ball extends Shape {
     private float r = 0.8f;
     private int mAngleSpan = 10;
     public static final Ball sInstance = new Ball(Point3.ORIGIN3, 0.01f, 30);
+    private int mColor = Color.WHITE;
 
     public Ball(Point3 center, float r, int angleSpan) {
+        this(center, r, angleSpan, Color.WHITE);
+    }
+
+    public Ball(Point3 center, float r, int angleSpan, int color) {
         this.mCenter = center;
         if (angleSpan > 0) {
             int num = 180 / angleSpan;
@@ -33,6 +39,7 @@ public class Ball extends Shape {
         }
 
         this.r = r;
+        mColor = color;
     }
 
     // 初始化顶点坐标数据的方法
@@ -141,6 +148,8 @@ public class Ball extends Shape {
         muMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
         //获取位置、旋转变换矩阵引用
         muMMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMMatrix");
+        //获取ball的颜色引用
+        maColorHandle = GLES20.glGetUniformLocation(mProgram, "uColor");
         // 获取程序中球半径引用
         muRHandle = GLES20.glGetUniformLocation(mProgram, "uR");
         //获取程序中顶点法向量属性引用
@@ -151,10 +160,28 @@ public class Ball extends Shape {
         maCameraHandle=GLES20.glGetUniformLocation(mProgram, "uCamera");
     }
 
+    private void initColorData() {
+        //创建颜色缓冲
+        float[] rgba = new float[4];
+        rgba[0] = Color.red(mColor) / 255.0f;
+        rgba[1] = Color.green(mColor) / 255.0f;
+        rgba[2] = Color.blue(mColor) / 255.0f;
+        rgba[3] = Color.alpha(mColor) / 255.0f;
+
+        ByteBuffer cbb = ByteBuffer.allocateDirect(rgba.length * 4);
+        cbb.order(ByteOrder.nativeOrder());//设置字节顺序
+        mColorBuffer = cbb.asFloatBuffer();//转换为float型缓冲
+
+        mColorBuffer.put(rgba);//向缓冲区中放入顶点坐标数据
+        mColorBuffer.position(0);//设置缓冲区起始位置
+    }
+
     @Override
     protected void onInitInSurfaceViewCreated() {
         // 初始化顶点坐标与着色数据
         initVertexData();
+        // 初始化颜色数据
+        initColorData();
         // 初始化shader
         initShader();
     }
@@ -175,6 +202,8 @@ public class Ball extends Shape {
         GLES20.glUniform3fv(maLightLocationHandle, 1, MatrixState.lightPositionFB);
         //将摄像机位置传入着色器程序
         GLES20.glUniform3fv(maCameraHandle, 1, MatrixState.cameraFB);
+        //将球的颜色信息传入着色器
+        GLES20.glUniform4fv(maColorHandle, 1, mColorBuffer);
 
         // 将顶点位置数据传入渲染管线
         GLES20.glVertexAttribPointer(maPositionHandle, 3, GLES20.GL_FLOAT, false, 3 * 4, mVertexBuffer);

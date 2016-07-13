@@ -22,6 +22,7 @@
         <activity android:name=".samples.BezierActivity"/>
         <activity android:name=".samples.BSplineActivity"/>
         <activity android:name=".samples.SplineActivity"/>
+        <activity android:name=".samples.LHSplineActivity"/>
 
     </application>
 

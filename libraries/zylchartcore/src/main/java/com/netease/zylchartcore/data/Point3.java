@@ -1,6 +1,6 @@
 package com.netease.zylchartcore.data;
 
-import android.graphics.Point;
+import android.graphics.Color;
 
 import com.netease.zylchartcore.c.Constant;
 
@@ -13,13 +13,18 @@ public class Point3 {
     public float x;
     public float y;
     public float z;
+    public float color;
 
     public Point3(float x, float y, float z) {
+        this(x, y, z, Color.WHITE);
+    }
+
+    public Point3(float x, float y, float z, int color) {
         this.x = x;
         this.y = y;
         this.z = z;
+        this.color = color;
     }
-
 
     public float squareMagnitude() {
         return x * x + y * y + z * z;

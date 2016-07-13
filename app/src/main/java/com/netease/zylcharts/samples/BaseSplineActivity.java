@@ -19,7 +19,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.netease.zylchartcore.activity.BaseChartActivity;
-import com.netease.zylchartcore.data.Point3;
+import com.netease.zylchartcore.data.ControlPoint3;
 import com.netease.zylchartcore.shape.Spline;
 import com.netease.zylchartcore.shape.SplineMode;
 import com.netease.zylchartcore.view.BaseTranslateSurfaceView;
@@ -35,7 +35,7 @@ public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnS
     protected SeekBar mSeekBar;
     protected Spline mSpline;
 
-    List<Point3> mPoints = new ArrayList<>();
+    List<ControlPoint3> mPoints = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,10 +74,10 @@ public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnS
         return SplineMode.SPLMODE_SPLINE;
     }
 
-    private void setPointCount(int count) {
+    protected void setPointCount(int count) {
         mPoints = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            mPoints.add(new Point3(i / 30.0f, (float) Math.random() / 3.0f, 0));
+            mPoints.add(new ControlPoint3(i / 30.0f, (float) Math.random() / 3.0f, 0, false));
         }
 
         if (mSpline == null) {
@@ -88,7 +88,7 @@ public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnS
         mSurfaceView.requestRender();
     }
 
-    public void setPoint(int idx, Point3 point) {
+    public void setPoint(int idx, ControlPoint3 point) {
         if (mSpline != null && mPoints != null && idx >= 0 && idx < mPoints.size()) {
             mPoints.set(idx, point);
             mSpline.setPoints(mPoints);
@@ -155,7 +155,7 @@ public class BaseSplineActivity extends BaseChartActivity implements SeekBar.OnS
                 }
 
                 if (day >= 0 && day < mPoints.size() && lhValue > 0) {
-                    setPoint(day, new Point3(1.0f * day / mPoints.size(), lhValue, 0));
+                    setPoint(day, new ControlPoint3(1.0f * day / mPoints.size(), lhValue, 0));
                     alertDialog.dismiss();
                 } else {
                     Toast.makeText(BaseSplineActivity.this, "输出有错误哦，day 0 ~ point.size()，lhValue > 0", Toast.LENGTH_SHORT).show();

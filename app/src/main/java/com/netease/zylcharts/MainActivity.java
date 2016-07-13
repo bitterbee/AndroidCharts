@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.netease.zylcharts.samples.BezierActivity;
 import com.netease.zylcharts.samples.DotChartActivity1;
+import com.netease.zylcharts.samples.LHSplineActivity;
 import com.netease.zylcharts.samples.PolylineActivity1;
 import com.netease.zylcharts.samples.BSplineActivity;
 import com.netease.zylcharts.samples.SplineActivity;
@@ -27,9 +28,10 @@ public class MainActivity extends AppCompatActivity
 
         mObjects.add(new ContentItem(DotChartActivity1.class, "Dot Chart", "A simple demonstration of the dot chart."));
         mObjects.add(new ContentItem(PolylineActivity1.class, "Polyline Chart", "A simple demonstration of the polyline chart."));
-        mObjects.add(new ContentItem(BezierActivity.class, "LH Bezier Chart", "A simple demonstration of the bezier chart."));
-        mObjects.add(new ContentItem(BSplineActivity.class, "LH BSpline Chart", "A simple demonstration of the b-spline chart."));
-        mObjects.add(new ContentItem(SplineActivity.class, "LH Spline Chart", "A simple demonstration of the spline chart."));
+        mObjects.add(new ContentItem(BezierActivity.class, "Bezier Chart", "A simple demonstration of the bezier chart."));
+        mObjects.add(new ContentItem(BSplineActivity.class, "BSpline Chart", "A simple demonstration of the b-spline chart."));
+        mObjects.add(new ContentItem(SplineActivity.class, "Spline Chart", "A simple demonstration of the spline chart."));
+        mObjects.add(new ContentItem(LHSplineActivity.class, "LH Spline Chart", "LH spline chart."));
 
         MainAdapter adapter = new MainAdapter(this, mObjects);
 

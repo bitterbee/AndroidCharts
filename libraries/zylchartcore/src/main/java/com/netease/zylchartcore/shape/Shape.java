@@ -16,10 +16,13 @@ public abstract class Shape {
     protected int maNormalHandle;         //顶点法向量属性引用
     protected int maLightLocationHandle;  //光源位置属性引用
     protected int maCameraHandle;         //摄像机位置属性引用
+    protected int maColorHandle;         //颜色属性引用
+
 
     protected String mVertexShader;       // 顶点着色器
     protected String mFragmentShader;     // 片元着色器
 
+    protected FloatBuffer mColorBuffer; // 顶点颜色数据缓冲
     protected FloatBuffer mVertexBuffer;  // 顶点坐标数据缓冲
     protected FloatBuffer mNormalBuffer;  //顶点法向量数据缓冲
 

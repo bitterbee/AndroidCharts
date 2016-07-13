@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/exploded-aar/AndroidCharts/zylchartcore/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4fe3dbc6ffd25465ddf3b90b8f52fe5c957ac256">
+        <dex dex="/Users/zyl06/Desktop/Desktop/works/健康项目/chart/AndroidCharts/app/build/intermediates/pre-dexed/debug/AndroidCharts-zylchartcore-unspecified_cc289f8042452cbebf9fc252413ed2ba15c4c8fd.jar" />
+    </item>
+
+</items>
